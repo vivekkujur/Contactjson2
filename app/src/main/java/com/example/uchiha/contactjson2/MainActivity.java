@@ -46,12 +46,6 @@ public class MainActivity extends AppCompatActivity {
 
         getContactPermission();
 
-        moreItembtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                pagination();
-            }
-        });
 
 
 
@@ -71,6 +65,12 @@ public class MainActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(linearLayoutManager);
         recyclerAdapter=new RecyclerAdapter();
 
+        moreItembtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                pagination();
+            }
+        });
     }
 
     private void getContactPermission() {
