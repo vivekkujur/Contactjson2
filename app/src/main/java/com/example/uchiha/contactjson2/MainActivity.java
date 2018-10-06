@@ -158,20 +158,11 @@ public class MainActivity extends AppCompatActivity {
 
                         // continue till this cursor reaches to all phone numbers which are associated with a contact in the contact list
 
-                        int count=0;
                         while (pCursor.moveToNext())
                         {
-                            count++;
-                            JSONObject pnObj = new JSONObject();
 
-                            String phoneNo= pCursor.getString(pCursor.getColumnIndex(ContactsContract.CommonDataKinds.Phone.NUMBER));
-
-                            try {
-                                pnObj.put("num"+count, phoneNo);
-                            } catch (JSONException e) {
-                                e.printStackTrace();
-                            }
-                            jArr.put(pnObj);
+                            String phoneNo= pCursor.getString(pCursor.getColumnIndex(ContactsContract.CommonDataKinds.Phone.NORMALIZED_NUMBER));
+                            jArr.put(phoneNo);
 
                         }
 
@@ -241,20 +232,10 @@ public class MainActivity extends AppCompatActivity {
 
                     // continue till this cursor reaches to all phone numbers which are associated with a contact in the contact list
 
-                    int count=0;
                     while (pCursor.moveToNext())
                     {
-                        count++;
-                        JSONObject pnObj = new JSONObject();
-
-                        String phoneNo= pCursor.getString(pCursor.getColumnIndex(ContactsContract.CommonDataKinds.Phone.NUMBER));
-
-                        try {
-                            pnObj.put("num"+count, phoneNo);
-                        } catch (JSONException e) {
-                            e.printStackTrace();
-                        }
-                        jArr.put(pnObj);
+                        String phoneNo= pCursor.getString(pCursor.getColumnIndex(ContactsContract.CommonDataKinds.Phone.NORMALIZED_NUMBER));
+                        jArr.put(phoneNo);
 
                     }
 
@@ -262,7 +243,7 @@ public class MainActivity extends AppCompatActivity {
                 }
 
                 try {
-                    Object.put("phone_number",jArr);
+                    Object.put("Contact_number",jArr);
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
